@@ -1,24 +1,10 @@
 const Shop = require('../src/shop')
 
-let normalItemMock = {
-  name: "item",
-  sellIn: 5,
-  quality: 10
-}
-
-let agedBrieMock = {
-  name: "Aged Brie",
-  sellIn: 5,
-  quality: 10
-}
-
-let sulfurasMock = {
-  name: 'Sulfuras, Hand of Ragnaros',
-  sellIn: 5,
-  quality: 10,
-}
-
-let shop = new Shop([normalItemMock]);
+let normalItemMock
+let agedBrieMock
+let sulfurasMock
+let backStageMock
+let shop
 
 describe("Shop", () => {
   beforeEach(() => {
@@ -36,6 +22,11 @@ describe("Shop", () => {
       name: 'Sulfuras, Hand of Ragnaros',
       sellIn: 5,
       quality: 10,
+    }
+    backStageMock = {
+      name: 'Backstage passes to a TAFKAL80ETC concert',
+      sellIn: 10,
+      quality: 10
     }
     shop = new Shop([normalItemMock, agedBrieMock, sulfurasMock]);
   });
@@ -77,6 +68,12 @@ describe("Shop", () => {
   });
 
   it('Sulfuras never has to be sold', () => {
+    shop.updateQuality();
+    expect(shop.items[2].sellIn).toBe(5);
+  });
 
+  it('Sulfuras never decreases in quality', () => {
+    shop.updateQuality();
+    expect(shop.items[2].quality).toBe(10);
   });
 });
