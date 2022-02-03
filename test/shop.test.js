@@ -94,5 +94,12 @@ describe("Shop", () => {
       shop.updateQuality();
     }
     expect(shop.items[3].quality).toBe(24);
+  });
+
+  it('the value of Backtage passes decreases to 0 after the concert', () => {
+    for ( let i = 0; i < 12; i++ ) {
+      shop.updateQuality();
+    }
+    expect(shop.items[3].quality).toBe(0);
   })
 });
