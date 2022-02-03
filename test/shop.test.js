@@ -25,10 +25,10 @@ describe("Shop", () => {
     }
     backStageMock = {
       name: 'Backstage passes to a TAFKAL80ETC concert',
-      sellIn: 10,
+      sellIn: 11,
       quality: 10
     }
-    shop = new Shop([normalItemMock, agedBrieMock, sulfurasMock]);
+    shop = new Shop([normalItemMock, agedBrieMock, sulfurasMock, backStageMock]);
   });
 
   it("decreases the quality by one with an update", () => {
@@ -75,5 +75,10 @@ describe("Shop", () => {
   it('Sulfuras never decreases in quality', () => {
     shop.updateQuality();
     expect(shop.items[2].quality).toBe(10);
+  });
+
+  it('Backstage passes increase in quality by 1 when sellIn > 10', () => {
+    shop.updateQuality();
+    expect(shop.items[3].quality).toBe(11);
   });
 });
