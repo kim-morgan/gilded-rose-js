@@ -78,5 +78,5 @@ describe("Shop", () => {
 
   it('Sulfuras never has to be sold', () => {
 
-  })
+  });
 });
