@@ -101,5 +101,12 @@ describe("Shop", () => {
       shop.updateQuality();
     }
     expect(shop.items[3].quality).toBe(0);
-  })
+  });
+
+  it('shop contains items', () => {
+    const gildedRoseShop = new Shop();
+    expect(gildedRoseShop.items).toEqual([])
+  });
+
+  
 });
