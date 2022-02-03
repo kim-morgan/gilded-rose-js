@@ -81,4 +81,18 @@ describe("Shop", () => {
     shop.updateQuality();
     expect(shop.items[3].quality).toBe(11);
   });
+
+  it('Backstage passes increase in quality by 2 when sellIn < 10 && sellIn > 5', () => {
+    for ( let i = 0; i < 2; i++ ) {
+      shop.updateQuality();
+    }
+    expect(shop.items[3].quality).toBe(13);
+  });
+
+  it('Backstage passes increase in quality by 3 when sellIn < 5', () => {
+    for ( let i = 0; i < 7; i++ ) {
+      shop.updateQuality();
+    }
+    expect(shop.items[3].quality).toBe(24);
+  })
 });
