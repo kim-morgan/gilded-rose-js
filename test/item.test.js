@@ -15,4 +15,12 @@ describe("Item", () => {
   it('knows that aged brie is special', () => {
     expect(agedBrie.isSpecial()).toBe(true);
   });
+
+  it('knows that backStagePass is special', () => {
+    expect(backStagePass.isSpecial()).toBe(true);
+  });
+
+  it('knows that sulfuras is special', () => {
+    expect(sulfuras.isSpecial()).toBe(true);
+  })
 });

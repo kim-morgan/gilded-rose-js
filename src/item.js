@@ -6,7 +6,7 @@ class Item {
   }
 
   isSpecial() {
-    return this.name === 'Aged Brie'
+    return this.name === 'Aged Brie' || this.name === 'Backstage passes to a TAFKAL80ETC concert' || this.name === 'Sulfuras, Hand of Ragnaros';
   }
 }
 
