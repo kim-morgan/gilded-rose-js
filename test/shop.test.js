@@ -25,7 +25,7 @@ describe("Shop", () => {
     }
     backStageMock = {
       name: 'Backstage passes to a TAFKAL80ETC concert',
-      sellIn: 11,
+      sellIn: 12,
       quality: 10
     }
     shop = new Shop([normalItemMock, agedBrieMock, sulfurasMock, backStageMock]);
@@ -83,21 +83,21 @@ describe("Shop", () => {
   });
 
   it('Backstage passes increase in quality by 2 when sellIn < 10 && sellIn > 5', () => {
-    for ( let i = 0; i < 2; i++ ) {
+    for ( let i = 0; i < 4; i++ ) {
       shop.updateQuality();
     }
-    expect(shop.items[3].quality).toBe(13);
+    expect(shop.items[3].quality).toBe(16);
   });
 
   it('Backstage passes increase in quality by 3 when sellIn < 5', () => {
-    for ( let i = 0; i < 7; i++ ) {
+    for ( let i = 0; i < 8; i++ ) {
       shop.updateQuality();
     }
-    expect(shop.items[3].quality).toBe(24);
+    expect(shop.items[3].quality).toBe(25);
   });
 
   it('the value of Backtage passes decreases to 0 after the concert', () => {
-    for ( let i = 0; i < 12; i++ ) {
+    for ( let i = 0; i < 13; i++ ) {
       shop.updateQuality();
     }
     expect(shop.items[3].quality).toBe(0);
@@ -107,6 +107,5 @@ describe("Shop", () => {
     const gildedRoseShop = new Shop();
     expect(gildedRoseShop.items).toEqual([])
   });
-
   
 });
